@@ -32,7 +32,7 @@ int main()
         }
 
         //Cek NOT
-        else if(input[i] == 'n' && input[i+1] == 'o' && input[i+2] == 't')
+        else if(input[i] == 'n' && input[i+1] == 'o' && input[i+2] == 't' && s.top() != 'p' && s.top() != 'q' && s.top() != 'r' && s.top() != 's' )
         {
             s.push(input[i]);
             s.push(input[i+1]);
@@ -43,7 +43,7 @@ int main()
         }
 
         //Cek IF
-        else if(input[i] == 'i' && input[i+1] == 'f' && (input[i+2] == ' ' || input[i+2] == 'p' || input[i+2] == 'q' || input[i+2] == 'r' || input[i+2] == 's' || input[i+2] == '('))
+        else if(input[i] == 'i' && input[i+1] == 'f' && (input[i+2] == ' ' || input[i+2] == 'p' || input[i+2] == 'q' || input[i+2] == 'r' || input[i+2] == 's' || input[i+2] == '(') && (s.top() != 'p' && s.top() != 'q' && s.top() != 'r' && s.top() != 's'))
         {
             s.push(input[i]);
             s.push(input[i+1]);
@@ -151,8 +151,21 @@ int main()
             cout<<"TIDAK VALID"<<endl;
             return 0;
         }
+        k = t.top();
+        t.pop();
+        if (t.empty()) {
+            cout<<"VALID"<<endl;
+            return 0;
+        }
+        if (k == t.top() && t.top() != 10){
+            cout<<"TIDAK VALID"<<endl;
+            return 0;
+        }
+        /*if(t.empty()){
+            cout<<"VALID"<<endl;
+            return 0;
+        }*/
         //Yang valid error
     }
-    cout<<"VALID"<<endl;
     return 0;
 }
